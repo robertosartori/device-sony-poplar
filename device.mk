@@ -23,6 +23,9 @@ PRODUCT_COPY_FILES := \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/start_dmesg:$(TARGET_COPY_OUT_SYSTEM)/bin/start_dmesg
+
 # Sensors Configuration
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/vendor/etc/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
@@ -102,3 +105,5 @@ $(call inherit-product-if-exists, vendor/nxp/nxp-vendor.mk)
 
 # include board vendor blobs
 $(call inherit-product-if-exists, vendor/sony/yoshino-common/yoshino-partial.mk)
+
+$(call inherit-product, vendor/sony/poplar/poplar.mk)
